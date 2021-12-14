@@ -5,7 +5,7 @@
 require 'json'
  
 # Read JSON file with box details
-jsonfile = "/CTFD/api/sample.json"
+jsonfile = "/home/{your_username}/Desktop/CTFPro/api/sample.json"
 filej = File.read(jsonfile)
 servers = JSON.parse(filej)
 
@@ -33,12 +33,12 @@ Vagrant.configure("2") do |config|
               srv.vm.synced_folder ".", "/vagrant", disabled: true
               srv.vm.provider server['type'] do |vmw, override|
                 vmw.aws_profile = "default"          # For now this is default, in the future the keys will be taken from the db 
-                vmw.ami = "ami-074cce78125f09d61"    # Change accordingly to your region's AMI
+                vmw.ami = "ami-002068ed284fb165b"    # Change accordingly to your region's AMI
                 vmw.instance_type = "t2.micro"
                 vmw.security_groups = ["vagrant"]    # Change accordingly to your created security group [allowing port 80(http) and 22(ssh)]
                 vmw.keypair_name = "vagrant"         # Change accordingly to your created keypair name
                 override.ssh.username = "ec2-user"
-                override.ssh.private_key_path = "/home/flak/Desktop/vagrant.pem"
+                override.ssh.private_key_path = "/home/{your_username}/Desktop/vagrant.pem"
                 vmw.block_device_mapping   = [
                   {
                     'DeviceName' => '/dev/xvda',     # Change accordingly to you region's device name
