@@ -84,21 +84,6 @@ def create_component(session: Session, _username: str, components: Creation) -> 
             raise ComponentInfoAlreadyExistError
         
 # Create the json file for vagrantfile
-    ctfd = components.ctfd
-    ctfd_name = components.ctfd_name
-    ctfd_type = components.ctfd_type
-    
-    dashboard = components.dashboard
-    dashboard_name = components.dashboard_name
-    dashboard_type = components.dashboard_type
-    
-    landing_page = components.landing_page
-    landing_page_name = components.landing_page_name
-    landing_page_type = components.landing_page_type
-    
-    database = components.database
-    database_name = components.database_name
-    database_type = components.database_type
     jsconfig = [ 
 	{
 		"provision": components.ctfd,
@@ -130,7 +115,7 @@ def create_component(session: Session, _username: str, components: Creation) -> 
         outfile.write(json_object)    
     
     # Vagrant up to create the machines 
-    vagrantfile = "/home/flak/Desktop/vb"
+    vagrantfile = "CTFPro/api/config/vagrantFile"
     v = vagrant.Vagrant(vagrantfile, quiet_stdout=False)
     v.up() # For creating an vb instance based on vagrantfile    
     
