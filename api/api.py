@@ -16,7 +16,6 @@ import subprocess
 import enum
 from collections import defaultdict
 from fastapi import FastAPI
-from ruamel.yaml import YAML
 from pathlib import Path
 
 router = APIRouter()
