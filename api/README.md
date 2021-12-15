@@ -59,6 +59,8 @@ institution varchar(45) NOT NULL
 
 INSERT INTO users VALUE ("billy", "password", "billy@ncl.com", "NCL");
 
+INSERT INTO users VALUE ("axe", "password", "axe@ncl.com", "NCL");
+
 create table component (
 component_id int AUTO_INCREMENT PRIMARY KEY, 
 type varchar(45) NOT NULL, 
@@ -75,7 +77,6 @@ exit
 
 ```
 
-Setup the {your_username} to your machines username in crud.py line 118, and in the Vagrantfile line 8 and line 41
 
 ### Usage
 
