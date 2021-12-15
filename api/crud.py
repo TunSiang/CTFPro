@@ -180,15 +180,13 @@ def create_component(session: Session, _username: str, components: Creation) -> 
         
         dashboard_box = subprocess.run(["VBoxManage", "guestproperty", "get", components.dashboard_name, "/VirtualBox/HostInfo/VBoxVerExt"], capture_output=True, text=True).stdout
         dashboard_ip = subprocess.run(["VBoxManage", "guestproperty", "get", components.dashboard_name, "/VirtualBox/GuestInfo/Net/1/V4/Broadcast"], capture_output=True, text=True).stdout
-        
         dashboard_box = dashboard_box.split()
         dashboard_ip = dashboard_ip.split()
-
         dashboard_box = dashboard_box[1]
         dashboard_ip = dashboard_ip[1]
         
         #add the component into the database
-        new_component_info = new_component_info = componentsInfo(username = _username, type = components.dashboard_type, hostname = components.dashboard_name, URL_access = dashboard_ip, state = dashboard_state)
+        new_component_info = componentsInfo(username = _username, type = components.dashboard_type, hostname = components.dashboard_name, URL_access = dashboard_ip, state = dashboard_state)
         session.add(new_component_info)
         session.commit()
         session.refresh(new_component_info)
@@ -224,15 +222,13 @@ def create_component(session: Session, _username: str, components: Creation) -> 
         
         landing_page_box = subprocess.run(["VBoxManage", "guestproperty", "get", components.landing_page_name, "/VirtualBox/HostInfo/VBoxVerExt"], capture_output=True, text=True).stdout
         landing_page_ip = subprocess.run(["VBoxManage", "guestproperty", "get", components.landing_page_name, "/VirtualBox/GuestInfo/Net/1/V4/Broadcast"], capture_output=True, text=True).stdout
-        
         landing_page_box = landing_page_box.split()
         landing_page_ip = landing_page_ip.split()
-
         landing_page_box = landing_page_box[1]
         landing_page_ip = landing_page_ip[1]
         
         #add the component into the database
-        new_component_info = new_component_info = componentsInfo(username = _username, type = components.landing_page_type, hostname = components.landing_page_name, URL_access = landing_page_ip, state = landing_page_state)
+        new_component_info = componentsInfo(username = _username, type = components.landing_page_type, hostname = components.landing_page_name, URL_access = landing_page_ip, state = landing_page_state)
         session.add(new_component_info)
         session.commit()
         session.refresh(new_component_info)
@@ -270,15 +266,13 @@ def create_component(session: Session, _username: str, components: Creation) -> 
         
         database_box = subprocess.run(["VBoxManage", "guestproperty", "get", components.database_name, "/VirtualBox/HostInfo/VBoxVerExt"], capture_output=True, text=True).stdout
         database_ip = subprocess.run(["VBoxManage", "guestproperty", "get", components.database_name, "/VirtualBox/GuestInfo/Net/1/V4/Broadcast"], capture_output=True, text=True).stdout
-        
         database_box = database_box.split()
         database_ip = database_ip.split()
-
         database_box = database_box[1]
         database_ip = database_ip[1]
         
         #add the component into the database
-        new_component_info = new_component_info = componentsInfo(username = _username, type = components.database_type, hostname = components.database_name, URL_access = database_ip, state = database_state)
+        new_component_info = componentsInfo(username = _username, type = components.database_type, hostname = components.database_name, URL_access = database_ip, state = database_state)
         session.add(new_component_info)
         session.commit()
         session.refresh(new_component_info)
