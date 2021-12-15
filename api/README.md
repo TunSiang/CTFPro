@@ -87,6 +87,35 @@ uvicorn main:app --host 0.0.0.0 --port 8000 --reload
 ifconfig
 
 # Test out the different api calls using the Swagger UL at " http://{your_ip}:8000/docs".
+
+# Example list all
+![image](https://user-images.githubusercontent.com/78256625/146099280-f1647868-a8a9-47e2-82d6-7dae23666d1e.png)
+(Since we only created user billy in our db we can only use billy)
+
+# Example list selected
+![image](https://user-images.githubusercontent.com/78256625/146099507-a84a8b9f-f919-4201-adb0-b5a1a228cbe1.png)
+(User billy and the selected instance name to query)
+
+# Example Create instance
+![image](https://user-images.githubusercontent.com/78256625/146099665-6ba8a3d5-8073-49aa-90e7-44efd730a583.png)
+(In this example, we are provisioning 2 instances one virtualbox named "fish", another instance is aws named "cow".
+If {component_name}=true means that you want to provison this instance, default all is set to true, please check to make sure which component to provison or else it willhave an error.)
+
+(Note! that right now there is no installing the ctfd script or etc just for testing aka making it faster to provision/test.)
+
+# Example stopping/starting an instance
+![image](https://user-images.githubusercontent.com/78256625/146100278-8ec1c67e-7e02-4e69-b025-2cc8cf038968.png)
+![image](https://user-images.githubusercontent.com/78256625/146100405-98516643-4617-416b-8133-463e0df52339.png)
+(In the first picture is stopping the instance, make sure that under {cur_state} is stop, if you want to start it change it to start.)
+(Right now it will only check for start and stop, will need to create an exception to catch any other values.)
+
+# Example Deleting a instance
+![image](https://user-images.githubusercontent.com/78256625/146100581-018834c5-5336-4f60-b4d0-d1e28ba3adcb.png)
+(Deleting the instance using instance name.)
+
+ALL this is with CRUD, storing the info into the db and using the db to get the info out.
+
+
 ```
 
 ### Errors
