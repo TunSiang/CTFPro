@@ -115,8 +115,8 @@ def create_component(session: Session, _username: str, components: Creation) -> 
         outfile.write(json_object)    
     
     # Vagrant up to create the machines 
-    vagrantfile = "/home/{your_username}/Desktop/CTFPro/api/config/Vagrantfile"
-    v = vagrant.Vagrant(vagrantfile, quiet_stdout=False)
+    vagrantfilepath = os.path.join("config")
+    v = vagrant.Vagrant(vagrantfilepath, quiet_stdout=False)
     v.up() # For creating an vb instance based on vagrantfile    
     
     
