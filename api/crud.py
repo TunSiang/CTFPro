@@ -146,7 +146,7 @@ def create_component(session: Session, _username: str, components: Creation) -> 
         session.commit()
         session.refresh(new_component_info)
         
-    elif components.ctfd == True and components.type == "aws":
+    elif components.ctfd == True and components.ctfd_type == "aws":
         # Get the machine to receive the machine state and machine IPv4 and OS
         # Get information for specfic instance
         current_instances = ec2.instances.filter(Filters=[
