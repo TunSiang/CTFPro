@@ -11,6 +11,7 @@ Python 3.7 or greater.
 Setup getting the CTFPro with git.
 
 ```bash
+sudo apt install git
 cd Desktop
 git clone https://github.com/TunSiang/CTFPro.git
 ```
