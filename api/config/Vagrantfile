@@ -4,8 +4,9 @@
 # Require JSON module
 require 'json'
  
-# Read JSON file with box details
-jsonfile = "/home/{your_username}/Desktop/CTFPro/api/sample.json"
+# Read JSON file and private key
+pri_key_path = File.expand_path("../../../../vagrant.pem", __FILE__)
+jsonfile = File.expand_path("../../sample.json", __FILE__)
 filej = File.read(jsonfile)
 servers = JSON.parse(filej)
 
@@ -38,7 +39,7 @@ Vagrant.configure("2") do |config|
                 vmw.security_groups = ["vagrant"]    # Change accordingly to your created security group [allowing port 80(http) and 22(ssh)]
                 vmw.keypair_name = "vagrant"         # Change accordingly to your created keypair name
                 override.ssh.username = "ec2-user"
-                override.ssh.private_key_path = "/home/{your_username}/Desktop/vagrant.pem"
+                override.ssh.private_key_path = pri_key_path
                 vmw.block_device_mapping   = [
                   {
                     'DeviceName' => '/dev/xvda',     # Change accordingly to you region's device name
