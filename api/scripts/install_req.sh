@@ -27,6 +27,8 @@ sudo pip3 install fastapi
 
 sudo pip3 install fastapi-utils
 
+sudo pip3 install pytest
+
 sudo ufw allow 8000
 
 sudo apt-get install python3-mysqldb
