@@ -8,22 +8,6 @@ class CreateAndUpdateComponent(BaseModel):
     hostname: str
     URL_access: str
     username: str
-
-
-# TO support list and get APIs NOT IN USE YET
-class Components(CreateAndUpdateComponent):
-    username: str
-
-    class Config:
-        orm_mode = True
-
-
-# To support list cars API
-class PaginatedComponentsInfo(BaseModel):
-    limit: int
-    offset: int
-    data: List[Components]
-    
     
 class Creation(BaseModel):
     ctfd: bool
