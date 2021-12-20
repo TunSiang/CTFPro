@@ -42,7 +42,7 @@ def get_all_components(session: Session, _username: str) -> List[componentsInfo]
     return component_info
 
 
-# Function to  get info of a particular component
+# Function to get info of a particular component
 def get_component_info_by_component_id(session: Session, _username: str, _componentname: str) -> componentsInfo:
     component_info = session.query(componentsInfo).filter_by(username=_username, hostname=_componentname).first()
     #component_info = session.query(componentsInfo).get(_componentname)
@@ -388,7 +388,7 @@ def update_component_info(session: Session, _username: str, _componentname: str,
     return component_info
 
 
-# Function to delete a car info from the db
+# Function to delete a component info from the db
 def delete_component_info(session: Session, _username: str, _componentname: str):
     component_info = get_component_info_by_component_id(session, _username, _componentname)
 
