@@ -94,7 +94,7 @@ ifconfig
 https://drive.google.com/drive/folders/1G1nBKYZ4RSeB3OtkEuE-L464E0DyFuD2?usp=sharing
 
 # Example list all
-(Since we only created user billy in our db we can only use billy)
+(Since we only created user billy and user axe in our db we can only use billy and axe)
 
 # Example list selected
 (User billy and the selected instance name to query)
