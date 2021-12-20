@@ -9,6 +9,7 @@ class CreateAndUpdateComponent(BaseModel):
     URL_access: str
     username: str
     
+# TO create components
 class Creation(BaseModel):
     ctfd: bool
     ctfd_type: str
