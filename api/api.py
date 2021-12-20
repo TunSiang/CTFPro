@@ -5,18 +5,10 @@ from sqlalchemy.orm import Session
 from crud import get_all_components, get_component_info_by_component_id, create_component, update_component_info, delete_component_info
 from database import get_db
 from exceptions import ComponentInfoException
-from schemas import CreateAndUpdateComponent, Components, PaginatedComponentsInfo, Creation
+from schemas import CreateAndUpdateComponent, Creation
 
-import vagrant
-import os
-import boto3
-import json
-import virtualbox
-import subprocess 
-import enum
-from collections import defaultdict
 from fastapi import FastAPI
-from pathlib import Path
+
 
 router = APIRouter()
 
