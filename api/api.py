@@ -12,6 +12,7 @@ from fastapi import FastAPI
 
 router = APIRouter()
 
+# API endpoint to list all components
 @router.get("/list/{username}")
 def list_components(username: str, session: Session = Depends(get_db)):
 
@@ -23,7 +24,7 @@ def list_components(username: str, session: Session = Depends(get_db)):
 
 # API endpoint to create an particular component
 @router.post("/create")
-def add_component(username: str,components: Creation, session: Session = Depends(get_db)):          #####################################
+def add_component(username: str,components: Creation, session: Session = Depends(get_db)):         
 
     try:
         component_info = create_component(session, username, components)
@@ -42,7 +43,7 @@ def get_component_info(username: str, component_name: str, session: Session = De
         raise HTTPException(**cie.__dict__)
 
 
-# API to update a existing component info after stopping or starting the component
+# API endpoint to stop or start the component
 @router.put("/{username}/{component_name}/{cur_state}")
 def update_component(username: str, component_name: str, get_state: str, session: Session = Depends(get_db)):
 
@@ -53,7 +54,7 @@ def update_component(username: str, component_name: str, get_state: str, session
         raise HTTPException(**cie.__dict__)
 
 
-# API to delete a component info from the data base and the component
+# API endpoint to delete a component
 @router.delete("/{username}/{component_name}")
 def delete_component(username: str, component_name: str, session: Session = Depends(get_db)):
 
