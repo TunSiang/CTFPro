@@ -37,4 +37,3 @@ sudo pip3 install "uvicorn[standard]"
 
 sudo apt install mysql-server
 
-sudo apt install git
