@@ -20,7 +20,7 @@ Setup [install_req.sh] file.
 
 ```bash
 sudo chmod 777 /home/{your_username}/Desktop/CTFPro/api/scripts/install_req.sh
-yes | ./home/{your_username}/Desktop/CTFPro/api/scripts/install_req.sh
+yes | /home/{your_username}/Desktop/CTFPro/api/scripts/install_req.sh
 ```
 
 Setup [awscli](https://github.com/aws/aws-cli/tree/v2).
@@ -28,56 +28,6 @@ Setup [awscli](https://github.com/aws/aws-cli/tree/v2).
 ```bash
 aws configure
 ```
-
-Setup [local_mysql_db].
-
-```bash
-sudo mysql
-
-CREATE USER 'sammy'@'localhost' IDENTIFIED BY 'password';
-
-GRANT CREATE, ALTER, DROP, INSERT, UPDATE, DELETE, SELECT, REFERENCES, RELOAD on *.* TO 'sammy'@'localhost' WITH GRANT OPTION;
-
-FLUSH PRIVILEGES;
-
-exit
-
-
-# Now log in as sammy 
-
-mysql -u sammy -p   # Password is password
-
-CREATE DATABASE ncl;
-
-use ncl;
-
-create table users (
-username varchar(45) NOT NULL PRIMARY KEY, 
-password varchar(45) NOT NULL,
-email varchar(45) NOT NULL, 
-institution varchar(45) NOT NULL
-);
-
-INSERT INTO users VALUE ("billy", "password", "billy@ncl.com", "NCL");
-
-INSERT INTO users VALUE ("axe", "password", "axe@ncl.com", "NCL");
-
-create table component (
-component_id int AUTO_INCREMENT PRIMARY KEY, 
-type varchar(45) NOT NULL, 
-hostname varchar(45) NOT NULL,
-state varchar(45) NOT NULL,
-URL_access varchar(45) NOT NULL, 
-username varchar(45) NOT NULL,
-CONSTRAINT fk_name
-FOREIGN KEY (username) 
-        REFERENCES users(username)
-);
-
-exit
-
-```
-
 
 ### Usage
 
@@ -91,7 +41,7 @@ ifconfig
 # Test out the different api calls using the Swagger UL at " http://{your_ip}:8000/docs".
 
 # Follow the example with video:
-https://drive.google.com/drive/folders/1G1nBKYZ4RSeB3OtkEuE-L464E0DyFuD2?usp=sharing
+https://drive.google.com/drive/folders/1G1nBKYZ4RSeB3OtkEuE-L464E0DyFuD2?usp=sharing (Outdated)
 
 # Example list all
 (Since we only created user billy and user axe in our db we can only use billy and axe)
@@ -119,5 +69,8 @@ ALL this is with CRUD, storing the info into the db and using the db to get the 
 
 ### Errors
 Make sure that your AMI is correct (checking the region and the AMI).
-I got this error where AMI is not recognised even though it is the correct AMI, later i know that the AMI was updated recently for my region.
-Even after updating the AMI and restarting the uvicorn, it still gives the error, only after deleting that Vagrantfile and creating a new one with the same settings does it work again. 
+There is this error, when using AWS along with vagrant. 
+Where even when the Vagrantfile is correct, the error will show (about wrong AMI) even when not using AWS but virtualbox.
+The error will persist until One, copy the Vagrantfile into another folder (aka from config file to vagrantTemplate file) which it will work as normal.
+
+Cause of error is unkown, however i'm leaning towards something to do with the cache that does not get flushed properly, however this does not happen usually, and usually works fine. 
