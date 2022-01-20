@@ -3,24 +3,24 @@
         "provision": true,
         "hostname": "cow",
         "resource": "virtualbox"
-        "type": "ctfd"
+        "type": "dashboard"
     },
     {
         "provision": true,
         "hostname": "salmon",
         "resource": "virtualbox"
-        "type": "dashboard"
+        "type": "webpage"
     },
     {
         "provision": false,
         "hostname": "string",
         "resource": "virtualbox"
-        "type": "landing_page"
+        "type": "challenge"
     },
     {
         "provision": false,
         "hostname": "string",
         "resource": "virtualbox"
-        "type": "database"
+        "type": "monitoring"
     }
 ]
