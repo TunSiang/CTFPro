@@ -11,15 +11,15 @@ class CreateAndUpdateComponent(BaseModel):
     
 # TO create components
 class Creation(BaseModel):
-    ctfd: bool
-    ctfd_resource: str
-    ctfd_name: str
     dashboard: bool
     dashboard_resource: str
     dashboard_name: str
-    landing_page: bool
-    landing_page_resource: str
-    landing_page_name: str
-    database: bool
-    database_resource: str
-    database_name: str
+    webpage: bool
+    webpage_resource: str
+    webpage_name: str
+    challenge: bool
+    challenge_resource: str
+    challenge_name: str
+    monitoring: bool
+    monitoring_resource: str
+    monitoring_name: str
