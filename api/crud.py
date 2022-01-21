@@ -71,7 +71,7 @@ def create_component(session: Session, _username: str, components: Creation) -> 
             raise ComponentInfoAlreadyExistError
 
     if components.webpage == True:
-        if components.webpage_name == components.challenge_name or components.monitoring_name == components.monitoring_name:
+        if components.webpage_name == components.challenge_name or components.webpage_name == components.monitoring_name:
             raise ComponentInfoAlreadyExistError
         component_details = session.query(componentsInfo).filter( componentsInfo.hostname == components.webpage_name, componentsInfo.username == _username).first()
         if component_details is not None:
