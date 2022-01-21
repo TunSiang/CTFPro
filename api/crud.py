@@ -31,8 +31,6 @@ class machineStates(enum.Enum): #for VB states
    Restoring = 13
 
 
-
-
 # Function to get list of components info
 def get_all_components(session: Session, _username: str) -> List[componentsInfo]:
     component_info = session.query(componentsInfo).filter_by(username=_username).all()
