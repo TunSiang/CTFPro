@@ -64,22 +64,22 @@ def create_component(session: Session, _username: str, components: Creation) -> 
     
 # Check if the names given have duplicates are not and if the names are in the database or not if yes go error, no then cont. 
     if components.dashboard == True:
-	if components.dashboard_name == components.webpage_name or components.dashboard_name == components.challenge_name or components.dashboard_name == components.monitoring_name:
-	    raise ComponentInfoAlreadyExistError
+        if components.dashboard_name == components.webpage_name or components.dashboard_name == components.challenge_name or components.dashboard_name == components.monitoring_name:
+            raise ComponentInfoAlreadyExistError
         component_details = session.query(componentsInfo).filter( componentsInfo.hostname == components.dashboard_name, componentsInfo.username == _username).first()
         if component_details is not None:
             raise ComponentInfoAlreadyExistError
 
     if components.webpage == True:
-	if components.webpage_name == components.challenge_name or components.monitoring_name == components.monitoring_name:
-	    raise ComponentInfoAlreadyExistError
+        if components.webpage_name == components.challenge_name or components.monitoring_name == components.monitoring_name:
+            raise ComponentInfoAlreadyExistError
         component_details = session.query(componentsInfo).filter( componentsInfo.hostname == components.webpage_name, componentsInfo.username == _username).first()
         if component_details is not None:
             raise ComponentInfoAlreadyExistError
 
     if components.challenge == True:
-	if  components.challenge_name == components.monitoring_name:
-	    raise ComponentInfoAlreadyExistError
+        if  components.challenge_name == components.monitoring_name:
+            raise ComponentInfoAlreadyExistError
         component_details = session.query(componentsInfo).filter( componentsInfo.hostname == components.challenge_name, componentsInfo.username == _username).first()
         if component_details is not None:
             raise ComponentInfoAlreadyExistError
